@@ -1,0 +1,15 @@
+---
+# Exercise 01: command module demo
+# Runs a command on the remote hosts and prints its output.
+
+- name: command module demo
+  hosts: all
+  tasks:
+    - name: check uptime
+      ansible.builtin.command: uptime
+      register: command_output
+      changed_when: false   # uptime only reads info, so don't report "changed"
+
+    - name: command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
