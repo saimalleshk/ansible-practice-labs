@@ -1,0 +1,17 @@
+---
+# Exercise 01: command module with a wildcard
+# This is EXPECTED to fail. The command module does not expand "*".
+
+- name: Command module glob demo
+  hosts: lab
+  gather_facts: false
+  tasks:
+    - name: List files and folders with command
+      ansible.builtin.command: ls -l *
+      register: command_output
+      changed_when: false
+      ignore_errors: true   # Let the play continue so we can see the error
+
+    - name: Show command error
+      ansible.builtin.debug:
+        var: command_output.stderr_lines

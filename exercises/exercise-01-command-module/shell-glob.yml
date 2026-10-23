@@ -1,0 +1,16 @@
+---
+# Exercise 01: shell module with a wildcard
+# The shell expands "*", so this works.
+
+- name: Shell module glob demo
+  hosts: lab
+  gather_facts: false
+  tasks:
+    - name: List files and folders with shell
+      ansible.builtin.shell: ls -l *
+      register: command_output
+      changed_when: false   # ls only reads info, so never report "changed"
+
+    - name: Show shell output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
