@@ -81,7 +81,7 @@ ansible --version
 3. Run the playbook from the repo root:
 
    ```bash
-   ansible-playbook -i inventory.ini exercises/exercise-01-command-module/playbook.yml
+   ansible-playbook -i inventory.ini exercises/exercise-01-command-vs-shell/command-uptime.yml
    ```
 
 4. Check your answers against the **Answer** section.
@@ -100,7 +100,7 @@ ansible-lint
 
 | # | Topic | Concepts |
 |---|-------|----------|
-| 01 | [Command Module](exercises/exercise-01-command-module/) | `command`, `register`, `debug`, `changed_when` |
+| 01 | [Command vs Shell](exercises/exercise-01-command-vs-shell/) | `command`, `shell`, `register`, `debug`, `changed_when` |
 
 More exercises are added over time.
 
